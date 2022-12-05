@@ -13,7 +13,6 @@ $(document).ready(function(){
 //
 // });
 
-// 
 $("#X").click(function(){
   // $("#on").toggle();
   $("body").css("background-image", "url('images/bg.png')");
