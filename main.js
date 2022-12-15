@@ -1,5 +1,5 @@
 var beachPhotos = [`<img class="gimg" src="images/3.png">`, `<img class="gimg" src="images/4.png">`, `<img class="gimg" src="images/5.jpg">`, `<img class="gimg" src="images/6.png">`, `<img class="gimg" src="images/7.png">`, `<img class="gimg" src="images/8.png">`, `<img class="gimg" src="images/9.png">`, `<img class="gimg" src="images/10.jpg">`, `<img class="gimg" src="images/11.png">`, `<img class="gimg" src="images/12.png">`, `<img class="gimg" src="images/13.jpeg">`, `<img class="gimg" src="images/14.png">`, `<img class="gimg" src="images/15.jpg">`, `<img class="gimg" src="images/16.jpg">`, `<img class="gimg" src="images/17.JPG">`, `<img class="gimg" src="images/18.jpg">`, `<img class="gimg" src="images/19.jfif">`];
-const bArtists = ["colonybees", "ezeikian", "blackcat_draws", "00kumahoshi00", "arvl.o", "yoyos.dreamz", "royal__doodlez", "blessed_jael", "magicalgirlobsessed", "magicalgirlobsessed", "sevodxam", "xenovirusuniverseart", "Awkwardbunnyarts", "meilosu", "Chwerrii", "yolksocc", "spark_0rg",];
+const bArtists = ["colonybees", "ezeikian", "blackcat_draws", "00kumahoshi00", "arvl.o", "yoyos.dreamz", "royal__doodlez", "blessed_jael", "magicalgirlobsessed", "magicalgirlobsessed", "bwf4zg92zxm", "xenovirusuniverseart", "Awkwardbunnyarts", "meilosu", "Chwerrii", "yolksocc", "spark_0rg",];
 var carnivalPhotos = [`<img class="gimg" src="images/21.png">`, `<img class="gimg" src="images/22.jpg">`, `<img class="gimg" src="images/23.png">`];
 const cArtists = ["Awkwardbunnyarts", "faemimis", "yoyos.dreamz"];
 var naturePhotos = [`<img class="gimg" src="images/1.jpg">`, `<img class="gimg" src="images/2.png">`];
@@ -35,6 +35,9 @@ $("#X").click(function(){
   $("#gallery").html("");
   $("#Holder").css("overflow-x", "scroll");
   $("Holder").css("width", "fit-content");
+  $("#gallery").css("width", "fit-content");
+  $("#gallery").css("justify-content", "flex-start");
+  $("#reminder").remove();
 });
 
 function openGallery(array){
@@ -47,6 +50,7 @@ function openGallery(array){
     }
     $("body").css("background-image", "url('images/bgBlurred.png')");
     adjustGallery();
+    $("body").append("<h1 id='reminder' style='text-align: center;color:white;font-size: 40px;-webkit-text-stroke-width: 0.1px;-webkit-text-stroke-color: black;'>Click to see the artists!</h1>");
 }
 
 function adjustGallery(){
@@ -83,8 +87,19 @@ function adjustGallery(){
   }
 }
 
+function galleryAdjustment(){
+  if ($(window).width() > $(window).height()) {
+    $("#gallery").css("width", "unset");
+    $("#gallery").css("justify-content", "center");
+  } else {
+    $("#gallery").css("width", "fit-content");
+    $("#gallery").css("justify-content", "flex-start");
+  }
+}
+
 $("#1").click(function(){
   openGallery(naturePhotos);
+  galleryAdjustment();
   $("#centerer").toggle();
   $("#galleryHolder").toggle();
   $("#X").toggle();
@@ -101,6 +116,7 @@ $("#2").click(function(){
 
 $("#3").click(function(){
   openGallery(foodPhoto);
+  galleryAdjustment();
   $("#centerer").toggle();
   $("#galleryHolder").toggle();
   $("#X").toggle();
@@ -109,6 +125,7 @@ $("#3").click(function(){
 $("#4").click(function(){
   openGallery(carnivalPhotos);
   $("#centerer").toggle();
+  galleryAdjustment();
   $("#galleryHolder").toggle();
   $("#X").toggle();
 });

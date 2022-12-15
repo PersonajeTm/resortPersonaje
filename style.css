@@ -6,7 +6,7 @@ body {
   background-image: url('images/bg.png');
   background-size: cover;
   font-family: 'Work Sans', sans-serif;
-  /* overflow: hidden; */
+  overflow-y: hidden;
 }
 
 h1, h2 {
@@ -52,6 +52,7 @@ button:hover {
   align-content: center;
   align-items: center;
   column-gap: 3%;
+  row-gap: 25px;
 }
 
 #galleryHolder {
